@@ -1,0 +1,37 @@
+{
+  "database": "sample_crm",
+  "tables": {
+    "customers": {
+      "columns": [
+        "customer_id",
+        "email",
+        "created_at",
+        "status"
+      ]
+    },
+    "orders": {
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_total",
+        "created_at"
+      ]
+    },
+    "invoices": {
+      "columns": [
+        "invoice_id",
+        "customer_id",
+        "amount_due",
+        "due_date"
+      ]
+    },
+    "support_tickets": {
+      "columns": [
+        "ticket_id",
+        "customer_id",
+        "priority",
+        "created_at"
+      ]
+    }
+  }
+}

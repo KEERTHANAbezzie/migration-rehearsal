@@ -1,0 +1,10 @@
+table,column,dependent_system,reference,severity
+customers,customer_id,Billing API,billing.customer_id lookup,High
+customers,customer_id,Customer Reporting ETL,daily_customer_report.sql,High
+customers,email,Marketing Export,customer_export job,Medium
+orders,customer_id,Order Service,orders.customer_id join,High
+orders,order_total,Revenue Dashboard,sum(order_total) metric,Medium
+invoices,customer_id,Billing API,invoice-to-customer join,High
+invoices,amount_due,Collections Job,amount_due comparison,Medium
+support_tickets,customer_id,Support Portal,ticket customer lookup,High
+customers,status,Customer Analytics,status filter,Low

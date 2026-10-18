@@ -1,0 +1,7 @@
+case_id,operation,table,column,summary,outcome,validation_test,severity
+MIG-001,Rename column,customers,customer_id,A downstream billing query still referenced the old customer identifier after a rename.,Hotfix updated the query; deployment delayed.,Run billing API contract tests against the renamed field.,High
+MIG-002,Drop column,orders,customer_id,A report depended on a field proposed for removal; the dependency was not included in the first review.,Drop postponed until report was migrated.,Run report regression tests and search queries/views for the old field.,High
+MIG-003,Change column type,invoices,amount_due,A type conversion caused a parsing issue for legacy values with unexpected formatting.,Data cleanup and conversion validation required.,"Test legacy, null, boundary and malformed values before conversion.",Medium
+MIG-004,Rename column,orders,customer_id,An integration consumer used a hard-coded field name and failed after schema update.,Consumer contract updated in a staged rollout.,Test all known API and ETL consumers during a staged migration.,High
+MIG-005,Change column type,customers,status,A downstream analytics job assumed a string value and rejected a changed type.,Job mapping was updated before rollout.,"Validate serialization, filters and analytics transformations.",Medium
+MIG-006,Drop column,support_tickets,priority,A dashboard still read a field marked for removal.,Dashboard query updated; rollout rescheduled.,Run dashboard smoke tests and query dependency checks.,Medium
